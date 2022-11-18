@@ -3,7 +3,7 @@
 # Include some files
 !.gitignore
 
-!GoldenPot/
+!Golden Pot/
 
-GoldenPot/bin
-GoldenPot/obj
+Golden Pot/bin
+Golden Pot/obj
