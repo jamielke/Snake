@@ -1,0 +1,9 @@
+/*
+
+# Include some files
+!.gitignore
+
+!GoldenPot/
+
+GoldenPot/bin
+GoldenPot/obj
