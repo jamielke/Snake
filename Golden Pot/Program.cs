@@ -1,7 +1,10 @@
-﻿public class start
+﻿namespace Golden_Pot
 {
-    public static void Main()
+    public class program
     {
-
+        public static async Task Main(string[] args)
+        {
+            await GameManager.play();
+        }
     }
 }

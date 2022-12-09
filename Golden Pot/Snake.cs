@@ -10,17 +10,22 @@ namespace Golden_Pot
         private Direction direction;
         private List<SnakeTail> tail;
 
-        public Snake(List<SnakeTail> tail, Coordinates coordinates)
+        public Snake(Coordinates coordinates)
             : base(coordinates)
         {
             this.direction = Direction.left;
-            this.tail = tail;
+            this.tail = new List<SnakeTail>();
+            for (int i = 0; i < 5; i++)
+            {
+                tail.Add(new SnakeTail(this.coordinates));
+            }
         }
 
         public void move()
         {
+            Console.WriteLine(tail.Count);
             tail.RemoveAt(tail.Count - 1);
-            tail.Prepend(new SnakeTail(this.getCoordinates()));
+            tail.Insert(0, new SnakeTail(this.coordinates));
 
             switch (direction)
             {

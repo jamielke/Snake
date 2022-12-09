@@ -3,7 +3,7 @@
   <Class Name="Golden_Pot.GameManager">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAABAABAAAAAA=</HashCode>
       <FileName>GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -15,14 +15,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Golden_Pot.Snake">
-    <Position X="7.75" Y="2" Width="1.5" />
+    <Position X="7.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAIQCAAAAAAAAAAAAAAIAAAAAAAAAAAgA=</HashCode>
       <FileName>Snake.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Golden_Pot.Apple">
-    <Position X="6" Y="3" Width="1.5" />
+    <Position X="6" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Apple.cs</FileName>
@@ -56,25 +56,11 @@
       <FileName>SnakeTail.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Golden_Pot.Player">
-    <Position X="0.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
-      <FileName>Player.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Golden_Pot.CollisionHandler">
+  <Class Name="Golden_Pot.MovementHandler">
     <Position X="4.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAQEBAAAAAAAAA=</HashCode>
-      <FileName>CollisionHandler.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Golden_Pot.PlayerManager">
-    <Position X="2.5" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
-      <FileName>PlayerManager.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAACAAIAAAEAAAAAAAAAQABAAAAAAAAA=</HashCode>
+      <FileName>MovementHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Golden_Pot.Coordinates">
@@ -88,7 +74,7 @@
     </TypeIdentifier>
   </Struct>
   <Enum Name="Golden_Pot.Direction">
-    <Position X="9.5" Y="2.5" Width="1.5" />
+    <Position X="9.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAIAAAAAAAAAgAAgAA=</HashCode>
       <FileName>Direction.cs</FileName>
