@@ -1,80 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Golden_Pot.GameManager">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Position X="4.25" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAABAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAIAAAAAAAACAAAIACRAABAAAAAA=</HashCode>
       <FileName>GameManager.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="entityManager" />
+      <Field Name="movementHandler" />
+      <Field Name="view" />
+      <Field Name="snake" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Golden_Pot.Entity">
-    <Position X="6" Y="0.5" Width="1.5" />
+    <Position X="6.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="coordinates" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Golden_Pot.Snake">
-    <Position X="7.75" Y="2.75" Width="1.5" />
+    <Position X="6.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAAAAAIQCAAAAAAAAAAAAAAIAAAAAAAAAAAgA=</HashCode>
+      <HashCode>IAAAAAgAAAAAIQCAAAAAAAAAAAAAAIAAAAAAAAAAAgg=</HashCode>
       <FileName>Snake.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="direction" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="tail" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Golden_Pot.Apple">
-    <Position X="6" Y="2.75" Width="1.5" />
+    <Position X="4.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Apple.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Golden_Pot.View">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="2.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAIQBAAIAAAAAATAAAAAAAAAA=</HashCode>
       <FileName>View.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Golden_Pot.KeyHandler">
-    <Position X="0.5" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>KeyHandler.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Golden_Pot.EntityManager">
-    <Position X="4.25" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAAAAAAEAAAAAAAAAAQAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAABAAAAAAAACAAAAAEAAAAAAAAAAQAAAAAAAACAAAA=</HashCode>
       <FileName>EntityManager.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="entities" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Golden_Pot.SnakeTail">
-    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Position X="9.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SnakeTail.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Golden_Pot.MovementHandler">
-    <Position X="4.25" Y="2.75" Width="1.5" />
+    <Position X="4.25" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAIAAAEAAAAAAAAAQABAAAAAAAAA=</HashCode>
       <FileName>MovementHandler.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="entityManager" />
+    </ShowAsAssociation>
   </Class>
   <Struct Name="Golden_Pot.Coordinates">
-    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Position X="6.5" Y="1.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAABgAGAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAABgAGAAAiA=</HashCode>
       <FileName>Coordinates.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Enum Name="Golden_Pot.Direction">
-    <Position X="9.5" Y="2.75" Width="1.5" />
+    <Position X="9.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAIAAAAAAAAAgAAgAA=</HashCode>
       <FileName>Direction.cs</FileName>

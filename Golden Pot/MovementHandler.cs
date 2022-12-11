@@ -28,9 +28,13 @@ namespace Golden_Pot
         {
             foreach (Entity entity in entityManager.getEntities())
             {
-                if (snake.getCoordinates == entity.getCoordinates)
+                if (snake.getCoordinates() == entity.getCoordinates())
                 {
-                    if (entity is Apple)
+                    if (entity is Snake)
+                    {
+                        continue;
+                    }
+                    else if (entity is Apple)
                     {
                         entityManager.removeEntity(entity);
                         snake.grow();
@@ -50,8 +54,7 @@ namespace Golden_Pot
             uint snakeX = snake.getCoordinates().getX();
             uint snakeY = snake.getCoordinates().getY();
 
-            return 0 <= snakeX && snakeX < size.getX()
-                && 0 <= snakeY && snakeY < size.getY();
+            return snakeX - 1 < size.getX() && snakeY - 1 < size.getY();
         }
     }
 }

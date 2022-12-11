@@ -8,12 +8,14 @@ namespace Golden_Pot
     public class Snake : Entity
     {
         private Direction direction;
+        private Direction nextDirection;
         private List<SnakeTail> tail;
 
         public Snake(Coordinates coordinates)
             : base(coordinates)
         {
             this.direction = Direction.left;
+            this.nextDirection = Direction.left;
             this.tail = new List<SnakeTail>();
             for (int i = 0; i < 5; i++)
             {
@@ -23,10 +25,10 @@ namespace Golden_Pot
 
         public void move()
         {
-            Console.WriteLine(tail.Count);
             tail.RemoveAt(tail.Count - 1);
             tail.Insert(0, new SnakeTail(this.coordinates));
 
+            setDirection();
             switch (direction)
             {
                 case Direction.left:
@@ -46,7 +48,7 @@ namespace Golden_Pot
 
         public void grow()
         {
-            tail.Prepend(new SnakeTail(this.getCoordinates()));
+            tail.Insert(0, new SnakeTail(this.getCoordinates()));
         }
 
         public Direction getDirection()
@@ -54,9 +56,23 @@ namespace Golden_Pot
             return direction;
         }
 
-        public void setDirection(Direction direction)
+        public List<SnakeTail> getSnakeTail()
         {
-            this.direction = direction;
+            return tail;
+        }
+
+        public void setNextDirection(Direction nextDirection)
+        {
+            this.nextDirection = nextDirection;
+        }
+
+        private void setDirection()
+        {
+            if (((int)nextDirection + 2) % 4 == (int)this.direction)
+            {
+                return;
+            }
+            this.direction = nextDirection;
         }
     }
 }

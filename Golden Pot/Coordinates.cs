@@ -35,5 +35,15 @@ namespace Golden_Pot
         {
             this.y = y;
         }
+
+        public static bool operator ==(Coordinates lhs, Coordinates rhs)
+        {
+            return lhs.getX() == rhs.getX() && lhs.getY() == rhs.getY();
+        }
+
+        public static bool operator !=(Coordinates lhs, Coordinates rhs)
+        {
+            return lhs.getX() != rhs.getX() || lhs.getY() != rhs.getY();
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 # Include some files
 !.gitignore
+!*.sln
 
 !Golden Pot/
 

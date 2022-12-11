@@ -6,14 +6,12 @@
         private static EntityManager entityManager;
         private static MovementHandler movementHandler;
         private static Snake snake;
+        private static View view;
 
         public static async Task play()
         {
-            Console.WriteLine("Start game");
-
             init();
 
-            View view = new View(entityManager, size);
             CancellationTokenSource cts = new CancellationTokenSource();
 
             async Task MonitorKeyPressed()
@@ -26,22 +24,22 @@
                         switch (key)
                         {
                             case ConsoleKey.UpArrow:
-                                snake.setDirection(Direction.up);
+                                snake.setNextDirection(Direction.up);
                                 break;
                             case ConsoleKey.RightArrow:
-                                snake.setDirection(Direction.right);
+                                snake.setNextDirection(Direction.right);
                                 break;
                             case ConsoleKey.DownArrow:
-                                snake.setDirection(Direction.down);
+                                snake.setNextDirection(Direction.down);
                                 break;
                             case ConsoleKey.LeftArrow:
-                                snake.setDirection(Direction.left);
+                                snake.setNextDirection(Direction.left);
                                 break;
                         }
                     }
 
-                    // 50 time a sec should be enough
-                    await Task.Delay(20);
+                    // 10 time a sec should be enough
+                    await Task.Delay(100);
                 }
             }
 
@@ -51,11 +49,13 @@
             do
             {
                 gameOver = movementHandler.move(snake);
-                view.show();
-                await Task.Delay(1000);
-            } while (!gameOver);
+                entityManager.spawnApple();
+                view.show(entityManager.getEntities());
+                await Task.Delay(250);
+            } while (gameOver);
 
             Console.WriteLine("Game over!");
+            Console.ReadKey();
             cts.Cancel();
             await monitorKeyPressed;
         }
@@ -68,6 +68,12 @@
 
             snake = new Snake(new Coordinates(size.getX() / 2, size.getY() / 2));
             entityManager.addEntity(snake);
+            view = new View(size);
+        }
+
+        public static Coordinates getSize()
+        {
+            return size;
         }
     }
 }
