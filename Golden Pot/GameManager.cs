@@ -2,48 +2,29 @@
 {
     public class GameManager
     {
-        private static Coordinates size;
-        private static EntityManager entityManager;
-        private static MovementHandler movementHandler;
-        private static Snake snake;
-        private static View view;
+        private EntityManager entityManager;
+        private int gameTick;
+        private MovementHandler movementHandler;
+        private Coordinates size;
+        private Snake snake;
+        private View view;
 
-        public static async Task play()
+        public GameManager()
         {
-            init();
+            this.entityManager = new EntityManager();
+            this.gameTick = 250;
+            this.movementHandler = new MovementHandler(entityManager, size);
+            this.size = new Coordinates(20, 20);
+            this.snake = new Snake(new Coordinates(size.getX() / 2, size.getY() / 2));
+            this.view = new View(size);
 
+            entityManager.addEntity(snake);
+        }
+
+        public async Task play()
+        {
             CancellationTokenSource cts = new CancellationTokenSource();
-
-            async Task MonitorKeyPressed()
-            {
-                while (!cts.Token.IsCancellationRequested)
-                {
-                    if (Console.KeyAvailable)
-                    {
-                        var key = Console.ReadKey(intercept: true).Key;
-                        switch (key)
-                        {
-                            case ConsoleKey.UpArrow:
-                                snake.setNextDirection(Direction.up);
-                                break;
-                            case ConsoleKey.RightArrow:
-                                snake.setNextDirection(Direction.right);
-                                break;
-                            case ConsoleKey.DownArrow:
-                                snake.setNextDirection(Direction.down);
-                                break;
-                            case ConsoleKey.LeftArrow:
-                                snake.setNextDirection(Direction.left);
-                                break;
-                        }
-                    }
-
-                    // 10 time a sec should be enough
-                    await Task.Delay(100);
-                }
-            }
-
-            var monitorKeyPressed = MonitorKeyPressed();
+            var monitorKeyPressed = MonitorKeyPressed(cts, gameTick);
 
             bool gameOver = false;
             do
@@ -51,7 +32,7 @@
                 gameOver = movementHandler.move(snake);
                 entityManager.spawnApple();
                 view.show(entityManager.getEntities());
-                await Task.Delay(250);
+                await Task.Delay(gameTick);
             } while (gameOver);
 
             Console.WriteLine("Game over!");
@@ -60,20 +41,35 @@
             await monitorKeyPressed;
         }
 
-        public static void init()
-        {
-            size = new Coordinates(20, 20);
-            entityManager = new EntityManager();
-            movementHandler = new MovementHandler(entityManager, size);
+        // Private
 
-            snake = new Snake(new Coordinates(size.getX() / 2, size.getY() / 2));
-            entityManager.addEntity(snake);
-            view = new View(size);
-        }
-
-        public static Coordinates getSize()
+        private async Task MonitorKeyPressed(CancellationTokenSource cts, int gameTick)
         {
-            return size;
+            while (!cts.Token.IsCancellationRequested)
+            {
+                if (Console.KeyAvailable)
+                {
+                    var key = Console.ReadKey(intercept: true).Key;
+                    switch (key)
+                    {
+                        case ConsoleKey.UpArrow:
+                            snake.setNextDirection(Direction.up);
+                            break;
+                        case ConsoleKey.RightArrow:
+                            snake.setNextDirection(Direction.right);
+                            break;
+                        case ConsoleKey.DownArrow:
+                            snake.setNextDirection(Direction.down);
+                            break;
+                        case ConsoleKey.LeftArrow:
+                            snake.setNextDirection(Direction.left);
+                            break;
+                    }
+                }
+
+                // How often per gameTick
+                await Task.Delay(gameTick / 10);
+            }
         }
     }
 }

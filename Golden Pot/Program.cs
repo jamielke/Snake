@@ -4,7 +4,7 @@
     {
         public static async Task Main(string[] args)
         {
-            await GameManager.play();
+            await new GameManager().play();
         }
     }
 }
